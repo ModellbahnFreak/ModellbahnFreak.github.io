@@ -1,7 +1,0 @@
-Dateiformat (HEX): S&L
-	MagicStr|Ver|       Frei für Daten                    Anzahl
-	53 26 4C 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 aa aa
-	Startposition der Datei|Länge                   x  y  Frei
-   [bb bb bb bb bb bb bb bb ll ll ll ll ll ll ll ll xx yy 00 00] Wird Anzahl mal wiederholt
-   
-   
