@@ -1,0 +1,58 @@
+body {
+	font-family: "Segoe UI", sans-serif;
+}
+#padArea {
+	position: absolute;
+	bottom: 0%;
+	left:0%;
+	width:100%;
+	height:75%;
+}
+#pads {
+	width:100%;
+	height:100%;
+}
+#pads td {
+	/*width:12%;
+	height:12%;*/
+	border:solid black 1px;
+}
+#menu {
+	position: fixed;
+	left:0px;
+	top:0px;
+	width:100%;
+	background-color:#ddd;
+	padding: 4px;
+	z-index:1000;
+}
+#menu #submenu {
+	/*display: none;*/
+	opacity:0;
+	position:absolute;
+	top:110%;
+	left:20%;
+	background-color:#ddd;
+	border:solid 1px #777;
+	border-radius:10px;
+	padding: 6px;
+	z-index:1000;
+	transition: opacity 0.1s ease-in-out;
+}
+.menuItem {
+	padding: 4px;
+	padding-left:6px;
+	padding-right:6px;
+	height: 100%;
+	cursor: pointer;
+	display: inline;
+}
+
+.submenuItem {
+	/*padding: 4px;
+	padding-left:6px;
+	padding-right:6px;
+	height: 100%;*/
+	cursor: pointer;
+	display: block;
+}

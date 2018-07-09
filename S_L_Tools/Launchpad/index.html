@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<title>Launchpad</title>
+</head>
+<script src="midi.js"></script>
+<script src="pad.js"></script>
+<script src="audio.js"></script>
+<link rel="stylesheet" href="styles.css">
+<body>
+<div id="menu"><div id="submenu">Neu<br>&Ouml;ffnen</div></div>
+<div id="padArea">
+<table id="pads"></table>
+</div>
+<div id="pressed"></div>
+<script>
+var pads = new Pad("pads", 9, 8);
+startMidi(pads);
+createMenuItem();
+</script>
+</body>
+</html>
