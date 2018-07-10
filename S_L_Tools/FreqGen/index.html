@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<script src="logik.js"></script>
+<title>Frequenz-Generator</title>
+<style>
+body {
+	font-family: sans-serif;
+}
+</style>
+</head>
+<body onload="laden();">
+<h1>Frequenzgenerator</h1>
+<table><tbody>
+<tr><td>Wellenform:</td><td><select id="wave" onchange="setWave();">
+<option value="sine" selected>Sinus</option>
+<option value="square">Rechteck</option>
+<option value="sawtooth">S&auml;gezahn</option>
+<option value="triangle">Dreieck</option>
+</select></td></tr>
+<tr><td>Frequenz:</td><td><input type="number" min="20" max="20000" value="440" id="frequenz" onchange="setFreq();"> Hz</td></tr>
+<tr><td></td><td><button id="toggle" onclick="toggleOsc(this);" name="Start">Start</button></td></tr>
+</body>
+</html>
