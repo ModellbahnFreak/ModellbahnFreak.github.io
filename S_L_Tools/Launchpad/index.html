@@ -15,7 +15,7 @@
 <div id="pressed"></div>
 <script>
 var pads = new Pad("pads", 9, 8);
-startMidi(pads);
+var midiIO = new Midi(pads);
 createMenuItem();
 </script>
 </body>

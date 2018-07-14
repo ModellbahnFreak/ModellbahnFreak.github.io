@@ -53,6 +53,7 @@ Pad.prototype.showFileSelect = function(anAus) {
 				var fileSel = document.createElement("input");
 				fileSel.type = "file";
 				fileSel.accept = "audio/*";
+				//fileSel.onclick = stopClickEvent;
 				fileSel.onchange = function() {
 					var datei = this.files[0];
 					if (datei) {
@@ -113,10 +114,12 @@ Pad.prototype.cellOn = function(col, row, volume) {
 			ton.volume = volume;
 			ton.play();
 		}
+	} else if (ton.readyState == 0) {
+		zelle.style.backgroundColor = "#eeeeff";
 	} else {
 		if (this.playMode == 0) {
-		ton.pause()
-		zelle.style.backgroundColor = "";
+			ton.pause()
+			zelle.style.backgroundColor = "";
 		}
 	}
 };
@@ -135,23 +138,31 @@ Pad.prototype.cellOn2 = function(zelle, volume) {
 			ton.pause()
 			zelle.style.backgroundColor = "";
 		}
+	} else if (ton.readyState == 0) {
+		zelle.style.backgroundColor = "#eeeeff";
 	}
 };
 
 Pad.prototype.cellOff = function(col, row) {
+	var zelle = this.tabelle.rows[row].cells[col];
+	var ton = zelle.getElementsByTagName("audio")[0];
 	if (this.playMode == 1) {
-		var zelle = this.tabelle.rows[row].cells[col];
 		zelle.style.backgroundColor = "";
-		var ton = zelle.getElementsByTagName("audio")[0];
 		ton.pause();
+	}
+	if (ton.readyState == 0) {
+		zelle.style.backgroundColor = "";
 	}
 };
 
 Pad.prototype.cellOff2 = function(zelle) {
+	var ton = zelle.getElementsByTagName("audio")[0];
 	if (this.playMode == 1) {
 		zelle.style.backgroundColor = "";
-		var ton = zelle.getElementsByTagName("audio")[0];
 		ton.pause();
+	}
+	if (ton.readyState == 0) {
+		zelle.style.backgroundColor = "";
 	}
 };
 
@@ -336,6 +347,9 @@ function addEinstSubmenu() {
 					pads.playMode = 0;
 				}
 				localStorage.setItem("ToggleMode", pads.playMode);
+				break;
+			case "MidiIn":
+				console.log(midiIO.getInputs());
 				break;
 		}
 		return stopClickEvent(e);
