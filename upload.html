@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File upload test</title>
+</head>
+
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <form>
+        <input name="imageFile" type="file" id="fileIn"><br><br>
+        URL: <input type="text" id="urlIn"><br><br>
+        <button id="sendBtn" type="button">Send</button>
+    </form>
+    <script>
+        const urlIn = document.getElementById("urlIn");
+        const fileIn = document.getElementById("fileIn");
+        const form = document.querySelector("form");
+        document.getElementById("sendBtn").addEventListener("click", () => {
+            const xhml = new XMLHttpRequest();
+            xhml.onreadystatechange = () => {
+                if (xhml.readyState == 4) {
+                    if (xhml.status == 200) {
+                        console.log(xhml.response);
+                    } else {
+                        console.log(xhml.response);
+                        alert("Error " + xhml.statusText);
+                    }
+                }
+            }
+            const fromData = new FormData();
+            if (fileIn.files.length > 0) {
+                fromData.append("imageFile", fileIn.files[0], fileIn.files[0].name);
+                xhml.open("POST", urlIn.value);
+                xhml.send(fromData);
+            }
+        });
+    </script>
+</body>
+
+</html>
