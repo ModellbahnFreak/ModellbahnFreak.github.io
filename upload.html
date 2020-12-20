@@ -31,7 +31,7 @@
             }
             const fromData = new FormData();
             if (fileIn.files.length > 0) {
-                fromData.append("imageFile", fileIn.files[0], fileIn.files[0].name);
+                fromData.append("image", fileIn.files[0], fileIn.files[0].name);
                 xhml.open("PUT", urlIn.value);
                 xhml.send(fromData);
             }
